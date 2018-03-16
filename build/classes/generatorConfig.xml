@@ -15,17 +15,17 @@
             <property name="forceBigDecimals" value="false"/>  
         </javaTypeResolver>  
         
-        <javaModelGenerator targetPackage="com.lyg.entitys" targetProject="SSM/src">  
+        <javaModelGenerator targetPackage="com.lyg.entitys" targetProject="SSMS/src">  
             <property name="enableSubPackages" value="true"/>  
             <property name="trimStrings" value="true"/>  
         </javaModelGenerator>  
-        <sqlMapGenerator targetPackage="com.lyg.mapping" targetProject="SSM/resource">  
+        <sqlMapGenerator targetPackage="com.lyg.mapping" targetProject="SSMS/resource">  
             <property name="enableSubPackages" value="true"/>  
         </sqlMapGenerator>  
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.lyg.dao" targetProject="SSM/src">  
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.lyg.dao" targetProject="SSMS/src">  
             <property name="enableSubPackages" value="true"/>  
         </javaClientGenerator>  
      
-         <table tableName="users"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+         <table tableName="t_menu"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
     </context>  
 </generatorConfiguration>  

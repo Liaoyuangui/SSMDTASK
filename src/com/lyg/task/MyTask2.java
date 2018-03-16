@@ -24,7 +24,7 @@ public class MyTask2 {
 	/**
 	 *定时， 每天凌晨 01:00 执行一次
 	 */
-	@Scheduled(cron = "0 52 14 * * *")
+	@Scheduled(cron = "0 00 1 * * *")
 	public void show(){
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		System.out.println(sdf.format(new Date())+"调用了show()方法");
