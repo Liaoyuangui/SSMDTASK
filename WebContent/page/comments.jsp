@@ -72,7 +72,7 @@
 
 </script>
 <script type="text/javascript">
-//查询所有心情或文章
+ //查询所有心情或文章
   $(function(){
 	  $.ajax({
 		  url:"../item/queryAllItem.do",
