@@ -19,6 +19,7 @@
 		 $.ajax({
 			url:"t_menu/getMenu.do",
 			type:"post",
+			dataType:"text/html",
 			contentType: "application/html; charset=utf-8",
 			success:function(res){
 				console.log(res);

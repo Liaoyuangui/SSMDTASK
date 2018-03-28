@@ -1,5 +1,6 @@
 package com.lyg.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -21,9 +22,8 @@ public class TmenuController {
 	public ITmenuService tmenuService;
 	
 	@ResponseBody
-	@RequestMapping("getMenu.do")
-	public String getMenu(HttpServletResponse response){
-		response.setContentType("text/html;charset=utf-8");
+	@RequestMapping(value = "getMenu.do",produces="text/html;charset=UTF-8;")
+	public String getMenu(HttpServletResponse response) throws UnsupportedEncodingException{
 		List<TMenu> queryAll = tmenuService.queryAll();
 		System.out.println(queryAll.size());
 		Tree tree = new Tree(queryAll);
