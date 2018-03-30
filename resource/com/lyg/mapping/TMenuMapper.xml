@@ -118,4 +118,14 @@
   <select id="queryAll" resultMap="BaseResultMap">
     select * from t_menu
   </select>
+  
+  <!-- 分页功能   -->
+  <select id="getMenuByPage" parameterType="com.lyg.utils.PageUtils" resultType="com.lyg.entitys.TMenu">
+     select * from t_menu where 1=1  limit #{startPos},#{pageSize}
+  </select>
+  <select id="getMenuCount" resultType="long">
+     <!-- 查询总数 -->
+     select count(0) from t_menu
+  </select>
+  
 </mapper>

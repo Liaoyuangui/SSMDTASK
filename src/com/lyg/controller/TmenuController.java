@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lyg.entitys.TMenu;
 import com.lyg.service.ITmenuService;
-import com.lyg.unitl.Tree;
+import com.lyg.utils.Tree;
 
 @Controller
 @RequestMapping("t_menu")

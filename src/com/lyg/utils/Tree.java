@@ -1,4 +1,4 @@
-package com.lyg.unitl;
+package com.lyg.utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,6 @@ public class Tree {
     }
     
     public String buildTree(){
-    	System.out.println(nodes.size()+"---");
         html.append("<ul>");
         for (TMenu node : nodes) {
             String id = node.getId();
@@ -41,6 +40,7 @@ public class Tree {
         } 
     }
     
+    //查找子节点
     private List<TMenu> getChildren(TMenu node){
         List<TMenu> children = new ArrayList<TMenu>();
         String id = node.getId();
