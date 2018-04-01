@@ -21,7 +21,7 @@ public class PageTestServiceImpl implements IPageTestService {
 		PageUtils dataList = null;
 		//查询总数
 		int totalCount = (int) menuDao.getMenuCount();
-		
+		System.out.println(pages.getPageNow());
 		//如果没有传当前页，就查询首页，否则按传入的页数查询
 		if(pages.getPageNow() != 1){
 			dataList = new PageUtils(totalCount, pages.getPageNow());

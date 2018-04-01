@@ -17,8 +17,9 @@ public class PageTestController {
 	@ResponseBody
 	@RequestMapping("testPage.do")
 	public PageUtils testPage(String pageNow){
+		System.out.println(pageNow);
 		PageUtils page = new PageUtils();
-		if(pageNow != null && "".equals(pageNow.trim())){
+		if(pageNow != null && !"".equals(pageNow.trim())){
 			page.setPageNow(Integer.parseInt(pageNow));
 		}else{
 			page.setPageNow(1);
