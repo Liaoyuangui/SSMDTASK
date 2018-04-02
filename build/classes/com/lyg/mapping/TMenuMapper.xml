@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lyg.dao.TMenuMapper" >
+  <resultMap id="BaseResultMap" type="com.lyg.entitys.TMenu" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="js" property="js" jdbcType="VARCHAR" />
+    <result column="pid" property="pid" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="yxbz" property="yxbz" jdbcType="VARCHAR" />
+    <result column="bz" property="bz" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, js, pid, name, url, yxbz, bz
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_menu
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_menu
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lyg.entitys.TMenu" >
+    insert into t_menu (id, js, pid, 
+      name, url, yxbz, bz
+      )
+    values (#{id,jdbcType=VARCHAR}, #{js,jdbcType=VARCHAR}, #{pid,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{yxbz,jdbcType=VARCHAR}, #{bz,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lyg.entitys.TMenu" >
+    insert into t_menu
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="js != null" >
+        js,
+      </if>
+      <if test="pid != null" >
+        pid,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="yxbz != null" >
+        yxbz,
+      </if>
+      <if test="bz != null" >
+        bz,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="js != null" >
+        #{js,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null" >
+        #{pid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="yxbz != null" >
+        #{yxbz,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null" >
+        #{bz,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lyg.entitys.TMenu" >
+    update t_menu
+    <set >
+      <if test="js != null" >
+        js = #{js,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null" >
+        pid = #{pid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="yxbz != null" >
+        yxbz = #{yxbz,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null" >
+        bz = #{bz,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lyg.entitys.TMenu" >
+    update t_menu
+    set js = #{js,jdbcType=VARCHAR},
+      pid = #{pid,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      yxbz = #{yxbz,jdbcType=VARCHAR},
+      bz = #{bz,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <select id="queryAll" resultMap="BaseResultMap">
+    select * from t_menu
+  </select>
+  
+  <!-- 分页功能   -->
+  <select id="getMenuByPage" parameterType="com.lyg.utils.PageUtils" resultType="com.lyg.entitys.TMenu">
+     select * from t_menu where 1=1  limit #{startPos},#{pageSize}
+  </select>
+  <select id="getMenuCount" resultType="long">
+     <!-- 查询总数 -->
+     select count(0) from t_menu
+  </select>
+  
+</mapper>

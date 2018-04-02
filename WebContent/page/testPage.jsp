@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="../js/jquery1.42.min.js"></script>
+<script type="text/javascript" src="../js/ys_fenye.js"></script>
 <title>分页测试</title>
 <style>
   #menu{
@@ -18,7 +19,7 @@
     background: #2b1e1e;
   }
   button{
-  border: 0px;
+    border: 0px;
     background: blue;
     color: white;
     width: 60px;
@@ -54,16 +55,17 @@
     <button onclick="dopages('last')">末页</button>
     <input type="text" id="inputPage" >
     <button onclick="dopages('go')">跳转</button>
-    <a>当前第<span class='ys' id="currentPage"></span>页/总共
-           <span class='ys' id="totalPage"></span>页</a>
+    <a>当前第<span class='ys' class="nowPage"></span>页/总共
+           <span class='ys'  class="totalPage"></span>页</a>
   </div>
+  
+  <div id='fenye'></div>
 
 <script type="text/javascript">
   
   $(function(){
 	 dopages(1);
   });
-  
   function setData(data){
 	 var td = "<tr>"+
       "<td colspan='2'>菜单</td>"+
@@ -86,8 +88,8 @@
 			 currentPage = res.pageNow;
 			 totalPage = res.totalPageCount;
 			 pageSize = res.pageSize;
-			 $("#currentPage").text(currentPage);
-			 $("#totalPage").text(totalPage);
+			 $(".nowPage").text(currentPage);
+			 $(".totalPage").text(totalPage);
 			 setData(res.dataList);
 		  }
 	  });
@@ -138,9 +140,16 @@
 	    	}
 	    	
 	    	getData(currentPage);
-	    
+	        
 	    }
 	 
+  </script>
+  <script type="text/javascript">
+    //测试封装的插件
+	  var dd = {
+	     "contentPage": "fenye"
+	  }
+	  fenye.init(dd,getData);
   </script>
 
 </body>
