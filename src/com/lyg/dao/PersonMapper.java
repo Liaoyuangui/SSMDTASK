@@ -11,4 +11,11 @@ public interface PersonMapper {
 	// 查询所有的数据
 	List<Person> selectAllPerson(Person person);
 
+	/**
+	 * 添加
+	 * @param person 对象
+	 * @return
+	 */
+	int insertPerson(Person person);
+
 }

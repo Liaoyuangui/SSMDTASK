@@ -20,4 +20,10 @@ public interface IPersonService {
 	 */
 	public List<Person> selectAllPerson(Person person);
 
+	/**
+	 * 添加
+	 * @param person
+	 * @return
+	 */
+	int insertPerson(Person person);
 }

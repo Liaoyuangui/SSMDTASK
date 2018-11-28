@@ -23,4 +23,8 @@ public class PersonServiceImpl implements IPersonService {
 		return personDao.selectAllPerson(person);
 	}
 
+	@Override
+	public int insertPerson(Person person) {
+		return personDao.insertPerson(person);
+	}
 }
